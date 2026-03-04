@@ -6,7 +6,7 @@ services:
     image: postgres:latest
     restart: always
     environment:
-      POSTGRES_DB: AMongoAAS
+      POSTGRES_DB: deployments
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
