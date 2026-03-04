@@ -1,0 +1,17 @@
+version: '3'
+networks: 
+  dem:
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: AMongoAAS
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    posrts:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - dem
