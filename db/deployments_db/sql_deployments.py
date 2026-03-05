@@ -6,7 +6,7 @@ import uuid
 from sqlalchemy import DateTime, String, Enum
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
-from common.models import Status
+from common.models import Deployment, Status
 from db.deployments_db.deployments_db import DeploymentsDb
 
 class Base(DeclarativeBase):
@@ -22,8 +22,7 @@ class Deployments(Base):
     
     
 class SqlDeployments(DeploymentsDb):
-    
-    def record_deployment(self):
+    def record_deployment(self, deployment: Deployment):
         raise NotImplementedError
 
     def get_deployment(self):
@@ -34,5 +33,7 @@ class SqlDeployments(DeploymentsDb):
 
     def delete_deployment(self):
         raise NotImplementedError
+
+
 
     

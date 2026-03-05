@@ -1,23 +1,12 @@
-import logging
-
-from sqlalchemy import create_engine
-
-from db.deployments_manager.sql_deployments import Base
-
+from db import infrastructure_db
+from db import system_manager
+from db.deployments_db import deployments_db
+from db.system_manager import SystemManager
 
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-LOGGER = logging.getLogger(__name__)
+def main():
+    sm = system_manager
+    sm.create_deployment()
 
-def get_db_engine():
-    engine = create_engine('postgresql://{}:{}@{}/{}'.format('postgres', 'postgres', 'localhost:5432', 'deployments'))
-    Base.metadata.create_all(engine)
-    return engine
-
-while True:
-    try:
-        db_engine = get_db_engine().connect()
-        if db_engine:
-            break
-    except Exception as e:
-        LOGGER.warning(f"++++ Retrying connection to the db bc of the issue {str(e)}++++")
+if __name__ == "__main__":
+    main()

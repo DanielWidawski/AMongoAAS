@@ -9,10 +9,13 @@ class Status(enum.Enum):
     CREATED = 'CREATED',
     DELETED = 'DELETED'
 
-class Deployments(BaseModel):
+class Deployment(BaseModel):
     id: UUID = Field(default_factory=uuid.uuid4())
     db_name: str
     status: Status = Field(default=Status.CREATED)
     # TODO: add validator
     username: str
     creation_time: datetime
+    
+    class Config:
+        orm_mode = True
