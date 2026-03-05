@@ -6,7 +6,7 @@ import uuid
 from pydantic import BaseModel, ConfigDict, Field
 
 class Status(enum.Enum):
-    CREATED = 'CREATED',
+    CREATED = 'CREATED'
     DELETED = 'DELETED'
 
 class Deployment(BaseModel):
