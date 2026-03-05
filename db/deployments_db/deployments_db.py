@@ -11,7 +11,7 @@ class DeploymentsDb(ABC):
         ...
     
     @abstractmethod
-    def get_deployment(self, deployment_id: UUID):
+    def get_deployment(self, deployment_id: UUID) -> Deployment:
         ...
     
     @abstractmethod

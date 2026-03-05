@@ -16,4 +16,4 @@ class Deployment(BaseModel):
     db_name: str
     status: Status = Field(default=Status.CREATED)
     username: str
-    creation_time: datetime
+    creation_time: datetime = Field(default_factory=lambda: datetime.now())

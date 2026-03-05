@@ -11,12 +11,13 @@ class InfrastructureDb(ABC):
         ...
     
     @abstractmethod
-    def delete_deployment(self, deployment_id: UUID):
+    def delete_deployment(self, db_name: str):
         ...
     
     @abstractmethod
     def update_deployment(self, deployment_id: UUID, db_name: str):
         ...
-    
+        
+    @abstractmethod
     def get_connection_string(self):
         ...

@@ -15,14 +15,15 @@ class SystemManager:
         self.deployments_db.record_deployment(deployment)
         self.infrastructure_db.create_deployment(deployment)
         
-    def get_deployment(self, deployment_id: UUID):
+    def get_deployment(self, deployment_id: UUID) -> Deployment:
         self.deployments_db.get_deployment(deployment_id)
         
     def update_deployment(self, deployment_id: UUID, db_name: str):
-        self.deployments_db.update_deployment(deployment_id, db_name)
-        self.infrastructure_db.update_deployment(deployment_id, db_name)
+        self.deployments_db.update_deployment()
+        self.infrastructure_db.update_deployment()
         
     def delete_deployment(self, deployment_id: UUID):
+        dep  = self.deployments_db.get_deployment(deployment_id)
         self.deployments_db.delete_deployment(deployment_id)
-        self.infrastructure_db.delete_deployment(deployment_id)
+        self.infrastructure_db.delete_deployment(dep.db_name)
         

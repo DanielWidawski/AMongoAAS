@@ -27,7 +27,7 @@ class SqlDeployments(DeploymentsDb):
             session.add(row)
             session.commit()
 
-    def get_deployment(self, deployment_id: UUID):
+    def get_deployment(self, deployment_id: UUID) -> Deployment:
         with Session() as session:
             stmt = select(Deployments).where(Deployments.id == deployment_id)
             result = session.execute(stmt).scalars().one()

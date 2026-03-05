@@ -9,11 +9,10 @@ from db.system_manager import SystemManager
 
 
 def main():
-    dep = Deployment(db_name="asd", creation_time=datetime.now(), username="daniel")
-    sql = SqlDeployments()
-    sql.record_deployment(dep)
-    got = sql.get_deployment(dep.id)
-    sql.delete_deployment(dep.id)
+    dep = Deployment(db_name="bamba", username="nivi_hamalka")
+    system_manager.create_deployment(dep)
+    get_dep = system_manager.get_deployment(dep.id)
+    system_manager.delete_deployment(dep.id)
     i = 9
 
 if __name__ == "__main__":
