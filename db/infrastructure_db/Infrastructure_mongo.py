@@ -1,4 +1,4 @@
-from db.db_infrastructure.db_manager import InfrastructureDb
+from db.infrastructure_db.infrastructure_db import InfrastructureDb
 
 
 class InfrastructureMongoDB(InfrastructureDb):
