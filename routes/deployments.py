@@ -20,3 +20,4 @@ def update_deployment(deployment_id: UUID, db_name: Annotated[str, Body()]):
     
 def delete_deployment(deployment_id: UUID):
     system_manager.delete_deployment(deployment_id)
+    

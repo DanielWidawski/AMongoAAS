@@ -3,19 +3,17 @@ import enum
 from uuid import UUID
 import uuid
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 class Status(enum.Enum):
     CREATED = 'CREATED',
     DELETED = 'DELETED'
 
 class Deployment(BaseModel):
-    id: UUID = Field(default_factory=uuid.uuid4())
+    model_config = ConfigDict(from_attributes=True)
+    
+    id: UUID = Field(default_factory= lambda: uuid.uuid4())
     db_name: str
     status: Status = Field(default=Status.CREATED)
-    # TODO: add validator
     username: str
     creation_time: datetime
-    
-    class Config:
-        orm_mode = True
