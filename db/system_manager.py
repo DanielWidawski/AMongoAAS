@@ -16,7 +16,7 @@ class SystemManager:
         self.infrastructure_db.create_deployment(deployment)
         
     def get_deployment(self, deployment_id: UUID) -> Deployment:
-        self.deployments_db.get_deployment(deployment_id)
+        return self.deployments_db.get_deployment(deployment_id)
         
     def update_deployment(self, deployment_id: UUID, db_name: str):
         self.deployments_db.update_deployment()

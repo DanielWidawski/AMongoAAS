@@ -15,6 +15,15 @@ app = FastAPI()
 app.include_router(deployments_router)
 
 def main():
+    # dep1 = Deployment(db_name="1", username="1")
+    # system_manager.create_deployment(dep1)
+    # dep2 = Deployment(db_name='2', username='1')
+    # system_manager.create_deployment(dep2)
+    # print(dep1.id)
+    # cop = system_manager.get_deployment(dep1.id)
+    # system_manager.delete_deployment(dep1.id)
+    # system_manager.delete_deployment(dep2.id)
+    # i = 0  
     uvicorn.run(app, host='0.0.0.0', port=8080)
     
 if __name__ == "__main__":
